@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">LoginForm</string>
+    <string name="app_name">Login Form</string>
+    <string name="Email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="last_text">Not yet registered signup Now</string>
+    <string name="register_title">Registration Form</string>
+    <string name="c_password">Confirm Password</string>
+    <string name="button_text">Register</string>
+    <string name="signup">Already have an account SignUp</string>
 </resources>
