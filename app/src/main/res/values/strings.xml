@@ -7,4 +7,5 @@
     <string name="c_password">Confirm Password</string>
     <string name="button_text">Register</string>
     <string name="signup">Already have an account SignUp</string>
+    <string name="Profile_text">Profile Page</string>
 </resources>

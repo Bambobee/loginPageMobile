@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText passwordEditText;
     Button loginButton;
     TextView RegisterTextView;
+    Button ActivityBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
         RegisterTextView = findViewById(R.id.signupText);
+        ActivityBtn = findViewById(R.id.testButton);
 
         loginButton.setOnClickListener(v ->  {
 
@@ -52,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     // Showing Toast message
                     Toast.makeText(MainActivity.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
+
+                    // Start activity_main2 after successful login
+                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    startActivity(intent);
                 }
 //                if(email.equals("ssewankamboderick@gmail.com") && password.equals("1234")){
 //                    Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
@@ -61,7 +67,12 @@ public class MainActivity extends AppCompatActivity {
 //                }
 
         });
+        ActivityBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
+        });
         RegisterTextView.setOnClickListener(v -> gotoRegister());
+
     }
 
     private void gotoRegister() {
