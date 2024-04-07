@@ -7,11 +7,12 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
-public class ProfileActivity extends AppCompatActivity {
-     Button LogoutBtn;
-    private static final String TAG = "MainActivity2";
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+    Button LogoutBtn;
+    private static final String TAG = "ProfileActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +21,17 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         LogoutBtn = findViewById(R.id.logoutButton);
-        LogoutBtn.setOnClickListener(v -> LogOut());
-
+        LogoutBtn.setOnClickListener(this);
     }
-    private void LogOut() {
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.logoutButton) {
+            handleLogoutButtonClick();
+        }
+    }
+
+    private void handleLogoutButtonClick() {
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         startActivity(intent);
     }
@@ -31,6 +39,6 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "Activity is being destroyed: ");
+        Log.d(TAG, "Activity is being destroyed");
     }
 }
